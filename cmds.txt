@@ -1,0 +1,7 @@
+coverage run --omit='*/env/*' manage.py test && coverage report
+
+mock and patch --> test db's for test cases
+
+swagger --> for API Documantation
+
+Docker --> make project as a container
