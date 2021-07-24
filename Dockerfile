@@ -16,4 +16,4 @@ RUN pip3 install -r requirements.txt
 # copy project
 COPY . /app
 
-EXPOSE 8000
+# EXPOSE 8000
