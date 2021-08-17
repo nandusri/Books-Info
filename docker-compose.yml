@@ -1,7 +1,19 @@
 version: "3.0"
-   
+
 services:
     
+    db:
+        image: library/postgres:11.1-alpine
+        restart: always
+        volumes:
+            - ./data/db:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_DB=booksinfo
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=root
+        ports:
+            - '5438:5432'
+
     web:
         build: .
         command: python manage.py runserver 0.0.0.0:8000
@@ -9,3 +21,5 @@ services:
         - .:/code
         ports:
         - "8000:8000"
+        depends_on:
+            - db
